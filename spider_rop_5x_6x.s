@@ -12,7 +12,7 @@ DLPLAY_NSSHANDLE_LOC_VA equ 0x001A5200
 SPIDER_GSPHEAPBUF equ 0x18410000
 SPIDER_ROP_LOC equ 0x08F01000
 
-.org 0x16000
+.orga 0x16000
 
 spiderRop:
 	;copy code to dlplay
