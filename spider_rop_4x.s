@@ -1,7 +1,7 @@
 ;This goes at 0x12000 in the launcher.dat
 .nds
 
-.create "spider_rop_4x.bin",0x0
+.open "unlaunch.dat",0x0
 
 ;define constants
 DLPLAY_CODE_LOC_VA equ 0x00192800
@@ -12,6 +12,7 @@ DLPLAY_NSSHANDLE_LOC_VA equ 0x001A5200
 SPIDER_GSPHEAPBUF equ 0x18410000
 SPIDER_ROP_LOC equ 0x08F01000
 
+.org 0x12000
 
 spiderRop:
 	;copy code to dlplay
@@ -203,5 +204,8 @@ spiderRop:
 		.word DLPLAY_CODE_LOC_VA, DLPLAY_CODE_LOC_VA, DLPLAY_CODE_LOC_VA, DLPLAY_CODE_LOC_VA
 		.word DLPLAY_CODE_LOC_VA, DLPLAY_CODE_LOC_VA
 	dlplayHook_end:
+
+.org 0x15FFF
+.byte 0
 
 .Close
